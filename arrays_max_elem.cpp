@@ -29,6 +29,16 @@ int * max_elem_position(int *p, int *q)
 	return pmax;
 }
 
+bool max_elem_pointer_to_pointer (int *p, int *q, int ** res)
+{
+	if (p == q) return false;
+
+	*res = p;
+	for (; p != q; ++p)
+		if (*p > **res) *res = p;
+	return true;
+}
+
 int main()
 {
 
