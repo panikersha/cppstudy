@@ -5,6 +5,42 @@
 using namespace std;
 
 
+int str_str_V2(const char *text, const char *pattern)
+{
+	const char * text_b = text;
+	const char * pattern_b = pattern;
+
+	if (*pattern_b == '\0') return 0;
+	while(*text_b)
+	{
+		bool next = true;
+		int i = 0;
+		while (*pattern_b)
+		{
+			if (*text_b == '\0') return -1;
+			if (*pattern_b !=*text_b) break;
+			
+			pattern_b++;
+			++i;
+			++text_b;
+			next = false;
+		}
+
+		if (*pattern_b == '\0')
+		{
+			int num = pattern_b - pattern;
+			return text_b - text - num;
+		}
+		if (next == true)
+		{
+			++text_b;
+		}
+		
+		if (*text_b == '\0') return -1;
+		pattern_b = pattern;
+	}
+	 return -1;
+}
 
 int str_str(const char *text, const char *pattern)
 {
