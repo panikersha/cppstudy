@@ -20,6 +20,15 @@ int max_elem_pointers(int * p, int * q)
 	return max;
 	
 }
+
+int * max_elem_position(int *p, int *q)
+{
+	int * pmax=p;
+	for (; p != q; ++p)
+		if (*p > *pmax) pmax = p;
+	return pmax;
+}
+
 int main()
 {
 
