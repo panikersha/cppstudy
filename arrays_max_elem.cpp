@@ -12,11 +12,19 @@ int max_element(int * m, int size)
 	return max;
 }
 
+int max_elem_pointers(int * p, int * q)
+{
+	int max = *p;
+	for (; p != q; ++p)
+		if (*p > max) max = *p;
+	return max;
+	
+}
 int main()
 {
-	int res = 0;
+
 	int p[10] = { 1,2,3,4,5,6,7,8,9,10 };
-	res = max_element(p, 10);
-	cout << res;
+	cout << max_element(p, 10) << endl;
+	cout << max_elem_pointers(p, p+10) << endl;
 	return 0;
 }
