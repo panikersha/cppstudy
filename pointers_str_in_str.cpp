@@ -4,6 +4,14 @@
 
 using namespace std;
 
+int str_str_genius(const char *text, const char *pattern)
+{
+	for (int i = 0; *text != '\0' || *pattern == '\0'; i++, text++)
+		for (int j = 0; *(text + j) == *(pattern + j) || *pattern == '\0'; j++)
+			if (*(pattern + j + 1) == '\0' || *pattern == '\0')
+				return i;
+	return -1;
+}
 
 int str_str_V2(const char *text, const char *pattern)
 {
