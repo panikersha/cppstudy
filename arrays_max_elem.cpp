@@ -39,6 +39,17 @@ bool max_elem_pointer_to_pointer (int *p, int *q, int ** res)
 	return true;
 }
 
+unsigned strlen(const char *str)
+{
+	unsigned num = 0;
+	while (*str != '\0')
+	{
+		num++;
+		str++;
+	}
+	return  num;
+}
+
 int main()
 {
 
