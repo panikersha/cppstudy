@@ -1,6 +1,18 @@
 #include <iostream>
 using namespace std;
 
+void reverse()
+{
+	int a;
+	cin >> a;
+	if (a == 0) return;
+	else
+	{
+		reverse();
+		cout << a<<" ";
+	}
+}
+
 int log(int b, int count)
 {
     int count_t = count;
