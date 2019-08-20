@@ -50,6 +50,17 @@ unsigned strlen(const char *str)
 	return  num;
 }
 
+void str_cat(char *to, const char *from)
+{
+	unsigned num =strlen(to);
+	char * to_end = to + num;
+	do {
+		*to_end = *from;
+		to_end++;
+	} while (*from++);
+	
+}
+
 int main()
 {
 
