@@ -22,6 +22,26 @@ int ** transpose(const int * const * m, unsigned rows, unsigned cols)
 	return res_a;
 }
 
+void swap_min(int *m[], unsigned rows, unsigned cols)
+{
+	int min = m[0][0];
+	int * min_row = m[0];
+	int i_min = 0;
+	for(int i = 0; i<rows; ++i)
+		for(int j = 0; j<cols; j++)
+		{
+			if (m[i][j] < min)
+			{
+				min = m[i][j];
+				min_row = m[i];
+				i_min = i;
+			}
+		}
+	m[i_min] = m[0];
+	m[0] = min_row;
+
+}
+
 int main()
 {
 
