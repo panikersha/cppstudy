@@ -9,7 +9,6 @@ using namespace std;
 
 struct String {
 
-	/* Реализуйте этот конструктор */
 	String(const char *str = "")
 	{
 		size = strlen(str);
