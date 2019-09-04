@@ -62,13 +62,27 @@ private:
     char op;
 };
 
+bool check_equals(Expression const *left, Expression const *right)
+{
+	int* lvptr = *(int**)left;
+	int* rvptr = *(int**)right;
+
+	if (rvptr == lvptr)
+		return true;
+	else return false;
+
+}
 int main()
 {
 Expression * sube = new BinaryOperation(new Number(4.5), '*', new Number(5));
 Expression * expr = new BinaryOperation(new Number(3), '+', sube);
-
+Number * num = new Number(5.3);
 std::cout << expr->evaluate() << std::endl;
-
+bool ch = true;
+	ch = check_equals(sube, expr);
+	std::cout << ch;
+	ch = check_equals(sube, num);
+	std::cout << ch;
 delete expr;
 return 0;
 }
