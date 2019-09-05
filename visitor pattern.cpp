@@ -32,8 +32,7 @@ private:
 };
 
 struct BinaryOperation : Expression
-{
-   
+{   
     BinaryOperation(Expression const * left, char op, Expression const * right)
         : left(left), op(op), right(right)
     { }
@@ -64,7 +63,6 @@ struct BinaryOperation : Expression
                return left->evaluate() / right->evaluate();
                break;
           }
-
      }
     }
     ~BinaryOperation()
@@ -100,20 +98,14 @@ struct PrintBinaryOperationsVisitor : Visitor {
 
 int main()
 {
+    Expression * sube = new BinaryOperation(new Number(4.5), '+', new Number(5));
+    Expression * expr = new BinaryOperation(new Number(3), '*', sube);
 
-Expression * sube = new BinaryOperation(new Number(4.5), '+', new Number(5));
-
-Expression * expr = new BinaryOperation(new Number(3), '*', sube);
-
-
-//std::cout << expr->evaluate() << std::endl;
-
-
-//Expression const * expr = get_expression();
-PrintBinaryOperationsVisitor visitor;
-expr->visit(&visitor);
-
-
-delete expr;
-return 0;
+    //std::cout << expr->evaluate() << std::endl;
+    //Expression const * expr = get_expression();
+    
+    PrintBinaryOperationsVisitor visitor;
+    expr->visit(&visitor);
+    delete expr;
+    return 0;
 }
