@@ -33,10 +33,7 @@ private:
 
 struct BinaryOperation : Expression
 {
-    /*
-      Здесь op это один из 4 символов: '+', '-', '*' или '/', соответствующих операциям,
-      которые вам нужно реализовать.
-     */
+   
     BinaryOperation(Expression const * left, char op, Expression const * right)
         : left(left), op(op), right(right)
     { }
