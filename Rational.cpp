@@ -78,7 +78,22 @@ private:
 };
 
 
- 
+ Rational operator+(Rational  a, Rational const& b)
+{
+	return a += b;
+};
+Rational operator*(Rational  a, Rational const& b)
+{
+	return a *= b;
+};
+Rational operator/(Rational  a, Rational const& b)
+{
+	return a /= b;
+};
+Rational operator-(Rational  a, Rational const& b)
+{
+	return a -= b;
+};
 
 int main()
 {
