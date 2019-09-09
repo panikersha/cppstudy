@@ -95,6 +95,36 @@ Rational operator-(Rational  a, Rational const& b)
 	return a -= b;
 };
 
+bool operator==(Rational const& a, Rational const& b)
+{
+	return   a.get_numerator() == b.get_numerator() && a.get_denominator() == b.get_denominator();
+}
+
+bool operator!=(Rational const& a, Rational const& b)
+{
+	return  !(a == b);
+}
+
+bool operator<(Rational const& a, Rational const& b)
+{
+	return (int)a.get_numerator() * (int)b.get_denominator() < (int)b.get_numerator() * (int)a.get_denominator();
+}
+
+bool operator>(Rational const& a, Rational const& b)
+{
+	return  b < a;
+}
+
+bool operator>=(Rational const& a, Rational const& b)
+{
+	return  !(a < b);
+}
+
+bool operator<=(Rational const& a, Rational const& b)
+{
+	return  !(b < a);
+}
+
 int main()
 {
 const Rational a(2,3);
