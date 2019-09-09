@@ -71,7 +71,10 @@ struct Rational {
         n.neg();
         return n;
     }
-     
+     operator double() const
+	{
+		return numerator_ / (double)denominator_;
+	}
 private:
     int numerator_;
     int denominator_;
