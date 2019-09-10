@@ -72,6 +72,51 @@ bool check_equals(Expression const *left, Expression const *right)
 	else return false;
 
 }
+
+struct ScopedPtr
+{
+
+	 explicit ScopedPtr(Expression *ptr = 0)
+	 {
+		 this->ptr_ = ptr;
+	 }
+	 ~ScopedPtr()
+	 {
+		 delete ptr_;
+	 }
+	 Expression* get() const
+	 {
+		 return ptr_;
+	 }
+	 Expression* release()
+	 {
+		 Expression *p = ptr_;
+		 ptr_ = 0;
+		 return p;
+	 }
+	 void reset(Expression *ptr = 0)
+	 {
+		 delete ptr_;
+		 ptr_ = ptr;
+	 }
+	 Expression& operator*() const
+	 {
+		 return *ptr_;
+	 }
+	 Expression* operator->() const
+	 {
+		 return ptr_;
+	 }
+
+
+private:
+	// запрещаем копирование ScopedPtr
+	ScopedPtr(const ScopedPtr&);
+	ScopedPtr& operator=(const ScopedPtr&);
+
+	Expression *ptr_;
+};
+
 int main()
 {
 Expression * sube = new BinaryOperation(new Number(4.5), '*', new Number(5));
